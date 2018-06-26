@@ -25,32 +25,35 @@ public class Main {
             }
 
             if (option == 1) {
-                addNewUser(userList, scanner );
-            }
-            else if (option == 2) {
+                addNewUser( userList, scanner );
+            } else if (option == 2) {
                 showAllUsers( userList );
             }
 
         } while (option != 3);
 
-        System.out.println("Program end");
+        System.out.println( "Program end" );
     }
 
 
-    private static void addNewUser(List<User> userList, Scanner scanner ) {
-        User user = getUser(scanner);
+    private static void addNewUser(List<User> userList, Scanner scanner) {
+        User user = getUser( scanner );
         userList.add( user );
-
+        if (userList.size() == 1) {
+            System.out.println( "Userlist contains: " + userList.size() + " user" );
+        }
+        else
+        {
             System.out.println( "Userlist contains: " + userList.size() + " users" );
-
+        }
     }
 
     private static void showAllUsers(List<User> userList) {
 
-        for (User user: userList) {
+        for (User user : userList) {
             System.out.println( user.getDescription( true ) );
         }
-        System.out.println("Program end");
+        System.out.println( "Program end" );
     }
 
     private static User getUser(Scanner scanner) {

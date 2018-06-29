@@ -11,6 +11,8 @@ public class Main {
         Scanner scanner = new Scanner( System.in );
         int option = 0;
         List<User> userList = new ArrayList<>();
+        int id = 1;
+
 
         do {
             System.out.println();
@@ -25,7 +27,7 @@ public class Main {
             }
 
             if (option == 1) {
-                addNewUser( userList, scanner );
+                addNewUser( userList, scanner, id++ );
             } else if (option == 2) {
                 showAllUsers( userList );
             }
@@ -36,8 +38,8 @@ public class Main {
     }
 
 
-    private static void addNewUser(List<User> userList, Scanner scanner) {
-        User user = getUser( scanner );
+    private static void addNewUser(List<User> userList, Scanner scanner, int id) {
+        User user = getUser( scanner, id );
         userList.add( user );
         if (userList.size() == 1) {
             System.out.println( "Userlist contains: " + userList.size() + " user" );
@@ -56,7 +58,7 @@ public class Main {
         System.out.println( "Program end" );
     }
 
-    private static User getUser(Scanner scanner) {
+    private static User getUser(Scanner scanner, int id) {
         System.out.println( "Retrieve data " );
         System.out.println( "Lastname: " );
         String surname = scanner.next();
@@ -67,7 +69,8 @@ public class Main {
         System.out.println( "Phone number: " );
         String usersPhoneNumber = scanner.next();
 
-        User user = new User( surname, firstname, usersAge, usersPhoneNumber );
+
+        User user = new User( surname, firstname, usersAge, usersPhoneNumber, id);
         return user;
     }
 }

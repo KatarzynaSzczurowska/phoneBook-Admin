@@ -8,8 +8,8 @@ public class User {
     private String phoneNumber;
     private int id;
 
-    public void setId(int id) {
-        this.id = id;
+    public int getId() {
+        return id;
     }
 
     public User(String surname, String firstname, int age, String phoneNumber, int id) {
